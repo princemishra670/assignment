@@ -1,0 +1,11 @@
+---
+- name: Generate Self-Signed Certificate
+  hosts: localhost
+  tasks:
+    - name: Generate private key and certificate
+      command: >
+        openssl req -x509 -nodes -days 730 -newkey rsa:2048
+        -keyout hello-world-test.key
+        -out hello-world-test.crt
+        -config openssl.conf
+        -extensions 'v3_req'
